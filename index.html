@@ -1,118 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<title>Jk主页</title>
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="Bookmark" href="favicon.ico">
-	<meta charset="UTF-8">
-	<title>reg_03</title>
 <link rel="stylesheet" type="text/css" href="style/reset.css">
 <style type="text/css">
-/*.ipt_box,
-.yzm_box*/
-dl{height: 62px;}
+.fl{float: left;}
+.fr{float: right;}
 
-dd{background-color: red; float: left; 
-	height: 42px; width: 70px; margin-right: 10px;
-	line-height: 42px; text-align: right;}
-dt{background-color: blue; margin-left: 70px;}
-/*.yzm_box{width: 142px;}*/
-.check_box{height: 40px;}
+.header{height: 60px; line-height:60px; background-color: #222222; color: #FFF; font-size: 20px; padding-left: 20px;}
+.body{/* height:800px; background-color: blue; */ font-size: 30px;}
+.footer{background-color: yellow;}
 
-.reg{margin:150px auto 0; width: 650px; height: 276px;}
-/*如果你不给一个具体的width margin:150px auto 0;是不会水平居中的*/
-#telEmail,
-#pswd{height: 40px;width: 310px; padding-left:10px;}
-#yzm{height: 40px;width: 142px; padding-left:10px;}
+.body .first{background-color: #D9EDF6; height: 40px; width: 1000px; margin:0 auto;}
 
-.reg .yzm_box {
-    border: 1px solid #ddd;
-    float: left;
-    height: 38px;
-    overflow: hidden;
-    width: 100px;
-}
-.reg .change_another {
-    float: left;
-    height: 40px;
-    line-height: 42px;
-    text-align: center;
-    width: 65px;
-}
+.body .basic{height: 220px; width: 800px; margin:0 auto 20px; 
+	border: 1px solid #D9EDF6; padding:20px 0 20px 50px;}
+.body .content,
+.body .intention{ width: 800px; margin:0 auto 20px; 
+	border: 1px solid #D9EDF6; padding:20px 0 20px 50px;}
+/*.body .basic .leftarea{background: url(images/head.jpg) no-repeat;}*/
+.body .basic .rightarea{margin-left: 50px; margin-top: 20px;}
 </style>
 </head>
 <body>
-	<div class="reg">
+	<div class="header">
+		首页&nbsp;&nbsp;<a href="">求职简历</a>
+	</div>
+	<div class="body">
+		<div class="first"><a href="#">求职简历</a></div>
+		<div class="basic">
+			<div class="leftarea fl" ><img src="images/head.jpg" width="150"/></div> 
+			<dl class="rightarea fl">
+				<dd></dd>
+				<dt>梁金财&nbsp;&nbsp;男</dt>
+				<dt>&nbsp;</dt>
+				<dt>应聘职位：前端开发</dt>
+				<dt></dt>
+			</dl>
+		</div>
+		<div class="content">
 		<dl>
-			<dd>手机/邮箱</dd>
-			<dt class="ipt_box">
-				<input type="text" id="telEmail" name="" value="手机/邮箱">
-			</dt>
+			<dd>基本资料</dd>
+			<dt>年&nbsp;龄：24周岁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学&nbsp;历：大专</dt>
+			<dt>籍&nbsp;贯：广东惠州&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;英文名：JK</dt>
+			<dt>联系方式：13512785404&nbsp;&nbsp;&nbsp;QQ：1337657417</dt>
+			<dt></dt>
 		</dl>
-		<dl>
-			<dd>密码</dd>
-			<dt class="ipt_box">
-				<input type="password" id="pswd" name="" placeholder="密码">
-			</dt>
-		</dl>
-		<dl>
-			<dd>验证码</dd>
-			<dt class="ipt_box">
-				<input type="text" id="yzm" name="" value="验证码">
-			</dt>
-			<dt class="yzm_box">
-				<img src="#">
-			</dt>
-			<dt class="change_another">
-				<a href="#">换一张</a>
-			</dt>
-		</dl>
-		<dl>
-			<dd></dd>
-			<dt class="check_box">
-				<input type="checkbox" id="agree">
-				我已阅读并接受<a href="#">《XXX协议》</a>
-			</dt>
-		</dl> 
+		</div>
+		<div class="intention">
+			<dl>
+			<dd>求职意向</dd>
+			<dt>期望行业： 计算机软件</dt>
+			<dt>期望职业： 前端开发工程师</dt>
+			<dt>期望地点： 成都</dt>
+			<dt>期望薪资： 10K</dt>
+			</dl>
+		</div>
+		<div class="intention">
+			一，我会什么？</br>
+			1.熟悉html，css，javaScript，JQuery；</br>
+			2.熟悉，DOM，Ajax；</br>
+			3.有表现与格式分离，web语意化意识；</br>
+			4.了解github，bootstrap集成；</br>
+			5.了解浏览器兼容问题；</br>
+			6.熟悉切图工具，PS 和 FireWorks；调试工具firebug，Dreamweaver，sublime text；</br>
+			个人博客：http://my.csdn.net/sufeideyeye</br>
+		</div>
+	</div>
+	<div class="footer">
+		df
 	</div>
 </body>
 </html>
-<!-- 
-				class="ipt_box"class="ipt_box"class="ipt_box"
-				class="yzm_box"class="change_another"
-				id="telEmail"id="pswd"id="yzm"id="agree"
-
-				<dt>验证码</dt>
-				<dd class="ipt_box">
-					<input id="yzm" type="text" autocomplete="off" style="width:120px;" placeholder="验证码" name="yzm">
-					<span class="clear"></span>
-				</dd>
-				<dd class="yzm_box">
-					<img src="./img/yzm.png">
-				</dd>
-				<dd class="change_another">
-					<a href="javascript:;">换一张</a>
-				</dd>
-				<dd class="mes">
-					<div class="error">
-					<div class="tip" style="line-height:34px;text-indent:15px;">请输入图片中的字符，不区分大小写</div>
-				</dd>
-			</dl>
-			<dl style="height:40px;overflow:hidden;">
-				<dt></dt>
-				<dd class="ipt_box protocol">
-					<input id="agree" type="checkbox" checked="">
-					<span>
-						<label for="agree">我已阅读并接受</label>
-						<a href="#">《XXXX用户协议》</a>
-					</span>
-				</dd>
-			</dl>
-			<dl>
-				<dt></dt>
-				<dd class="ipt_box">
-					<input class="regBtn" type="button" value="注册">
-				</dd>
-				<dd class="mes">
-					<div class="error" style="display: none;">
-						<span class="error_icon"></span>
- -->
