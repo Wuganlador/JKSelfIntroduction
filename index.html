@@ -12,22 +12,27 @@
 
 .header{height: 60px; line-height:60px; background-color: #222222; color: #FFF; font-size: 20px; padding-left: 20px;}
 .body{/* height:800px; background-color: blue; */ font-size: 25px; font-family: "宋体";}
-.footer{background-color: yellow;}
+.footer{height: 20px; background-color: yellow; clear: both;}
 
-.body .first{background-color: #D9EDF6; height: 40px; width: 1000px; margin:0 auto;}
+.body .first{background-color: #D9EDF6; height: 40px; line-height: 40px; width: 1000px; margin:0 auto;}
 
 .body .basic{height: 220px; width: 800px; margin:0 auto 20px; 
 	border: 1px solid #D9EDF6; padding:20px 0 20px 50px;}
 .body .content,
 .body .intention{ width: 800px; margin:0 auto 20px; 
 	border: 1px solid #D9EDF6; padding:20px 0 20px 50px;}
+.body .item{ width: 800px; height: 250px; margin:0 auto 20px; 
+	border: 1px solid #D9EDF6; padding:20px 0 20px 50px;}
 /*.body .basic .leftarea{background: url(images/head.jpg) no-repeat;}*/
 .body .basic .rightarea{margin-left: 50px; margin-top: 20px;}
+.body .intention .imgbox img{display: block;}
+
+.img_item{margin-right: 20px; font-size: 18px; text-align: center;}
 </style>
 </head>
 <body>
 	<div class="header">
-		首页&nbsp;&nbsp;<a href="">求职简历</a>
+		首页&nbsp;&nbsp;<a href="#">求职简历</a>
 	</div>
 	<div class="body">
 		<div class="first"><a href="#">求职简历</a></div>
@@ -43,7 +48,7 @@
 		</div>
 		<div class="content">
 		<dl>
-			<dd>基本资料</dd>
+			<dd><h4>基本资料</h4></dd>
 			<dt>年&nbsp;龄：24周岁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学&nbsp;历：大专</dt>
 			<dt>籍&nbsp;贯：广东惠州&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;英文名：JK</dt>
 			<dt>联系方式：13512785404&nbsp;&nbsp;&nbsp;QQ：1337657417</dt>
@@ -52,7 +57,7 @@
 		</div>
 		<div class="intention">
 			<dl>
-			<dd>求职意向</dd>
+			<dd><h4>求职意向</h4></dd>
 			<dt>期望行业： 计算机软件</dt>
 			<dt>期望职业： 前端开发工程师</dt>
 			<dt>期望地点： 广州</dt>
@@ -60,18 +65,37 @@
 			</dl>
 		</div>
 		<div class="intention">
-			一，我会什么？</br>
+			<h4>掌握技能</h4>
 			1.熟悉html，css，javaScript，JQuery；</br>
 			2.熟悉，DOM，Ajax；</br>
 			3.有表现与格式分离，web语意化意识；</br>
 			4.了解github，bootstrap集成；</br>
 			5.了解浏览器兼容问题；</br>
 			6.熟悉Dreamweaver，sublime text，熟悉图片编辑工具PS、FireWorks；</br>
-			个人博客：http://my.csdn.net/sufeideyeye</br>
+			 个人博客：<a href="http://my.csdn.net/sufeideyeye">http://my.csdn.net/sufeideyeye</a></br>
+		</div>
+
+		<div class="item">
+			<h4>实践展示</h4>
+			<div class="img_item fl">
+				<a href="http://wuganlador.github.io/onlineRetailers02/#"><img src="images/project01.jpg" alt="#" width="150"></a>
+				<p>电商网站_产品分类页</p>
+			</div>
+			
+			<div class="img_item fl">
+				<a href="http://wuganlador.github.io/Validation_domo03"><img src="images/project02.jpg" alt="#" width="150"></a>
+				<p>密码输入</p>
+			</div>
+		</div>
+		<div class="intention">
+			<dl><h4>工作经历</h4></dl>
+			<dt>2015.04 — 2015.12	深圳盈客科技有限公司		销售助理</dt>
+			<dt>2014.04 — 2014.12   广州宇竣自动化有限公司    电气工程师助理</dt>
+		
 		</div>
 	</div>
 	<div class="footer">
-		df
+		
 	</div>
 </body>
 </html>
