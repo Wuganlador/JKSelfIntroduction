@@ -1,283 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Jk主页</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 上行代码，初始化移动浏览显示，解决移动端配适问题 -->
+// jquery.fullPage 图片轮播设置
+$(function(){
+    $('#dowebok').fullpage({
+        // sectionsColor: ['#1bbc9b', '#4BBFC3', '#febc59', '#6cced6','#FF6666','#FFF'],
+        // sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90','#FF6666','#FFF'],
+        //#7BAABE  #f90 橘黄色  #C2C7CA  #6cced6 febc59
+        'navigation': true,
 
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="Bookmark" href="favicon.ico">
+        afterLoad: function(anchorLink, index){
+            if(index == 2){
+                $('.section2').find('#about_list_content').delay(500).animate({
+                    left: '0'
+                }, 1500, 'easeOutExpo');         
+                // 改变英文标题的 透明度动画
+                $("#about_content .title_en").animate({opacity:"1"},2000);
+            }
+            if(index == 3){
+                $('.section3').find('#skill_list').delay(500).animate({
+                    left: '0'
+                }, 1500, 'easeOutExpo');
+                
 
-	<link rel="stylesheet" type="text/css" href="style/reset.css">
-	<link rel="stylesheet" type="text/css" href="style/index.css">
-	<link rel="stylesheet" href="style/jquery.fullPage.css">
+                $("#skill_content .title_en").animate({opacity:"1"},2000);
+            }
+            if(index == 4){
+                $("#exp_content .title_en").animate({opacity:"1"},2000);
+            }
+            if(index == 5){
+                $('.section5').find('#demo_content_list').fadeIn(3000);
+                $("#demo_content .title_en").animate({opacity:"1"},2000);
+            }
+            if(index == 6){
+                 $('.section3').find('#contact_content_list').delay(500).animate({
+                    bottom: '0'
+                }, 1500, 'easeOutExpo');
+                $("#contact_content .title_en").animate({opacity:"1"},2000);
+            }
+        },
+        onLeave: function(index, direction){
+            if(index == '2'){
+                $('.section2').find('#about_list_content').delay(50).animate({
+                    left: '-120%'
+                }, 1500, 'easeOutExpo');
+                $("#about_content .title_en").animate({opacity:"0"},10);
+            }
+            if(index == '3'){
+                $('.section3').find('#skill_list').delay(50).animate({
+                    left: '+120%'
+                }, 1500, 'easeOutExpo');
+                
+                $("#skill_content  .title_en").animate({opacity:"0"},10);
+            }
+            if(index == '4'){
+                $("#exp_content .title_en").animate({opacity:"0"},10);
+            }
+            if(index == '5'){
+                $('.section5').find('#demo_content_list').fadeOut(30);
+                $("#demo_content .title_en").animate({opacity:"0"},10);
+            }
+            if(index == '6'){
+                $('.section3').find('#contact_content_list').delay(50).animate({
+                    bottom: '-120%'
+                }, 1500, 'easeOutExpo');
+                $("#contact_content .title_en").animate({opacity:"0"},10);
+            }
+        }
 
-	<script src="javascripts/jquery-1.11.2.min.js"></script>
-	<script src="javascripts/jquery.fullPage.js"></script>
-	<script src="javascripts/jquery.easing.min.js"></script>
-	<script src="javascripts/index.js"></script>
-</head>
-<body>
-	<!-- header navigation -->
-	<div id="header" style="opacity: 0.3;"></div>
-	<header style="opacity: 1;">
-		<div id="logo">
-			<div id="header_img"><img src="./images/logo.jpg" alt=""></div>
-			<div id="header_p">
-				<p id="header_p1">F2E</p>
-				<p id="header_p2">个人简历</p>
-			</div>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="#">首页</a></li>
-				<li><a href="#">随笔</a></li>
-				<li><a href="#">积淀</a></li>
-				<li><a href="#">关于</a></li>
-			</ul>
-		</nav>
-	</header>
-	<div id="dowebok">
-		<!-- page1 home -->
-		<div class="section section1">
-			<div id="home">
-				<div class="home_zoom">
-					<div class="imgbox" id="home_head_imgbox">
-						<img src="./images/portrait.jpg" id="home_photo1" alt="">
-						<img src="./images/logo.jpg" id="home_photo2" alt="">
-					</div>
-					<div id="home_info">
-						<p id="home_info1" style="display: block;">生活是一种绵延不绝的渴望,渴望不断上升,变得更伟大而高贵。</p>
-						<div id="home_info_box">
-							<p id="home_info2" style="display: block;">我叫 梁金财</p>
-							<p id="home_info3" style="display: block;">25岁</p>
-							<p id="home_info4" style="display: block;">应聘职位：前端研发工程师</p>
-							<p id="home_info5" style="display: block;">1337657417@qq.com</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- page1 home end -->
-		<!-- page2 about -->
-		<div class="section section2">
-			<div id="about">
-				<div id="about_content">
-					<div class="title">
-						<h1>关于我</h1>
-						<div class="title_en"><h2>· About me ·</h2></div>
-					</div>
-					<div id="about_list_content">
-						<div class="about_list" id="about_list1">
-							<div class="about_list_eg" id="about_en_edu">education</div>
-							<div class="about_list_cn" id="about_cn_edu">学历<p>大专</p></div>
-						</div>
-	                    <div class="about_list">
-	                        <div class="about_list_eg" id="about_en_age">age</div>
-	                        <div class="about_list_cn" id="about_cn_age">年龄<p>25岁</p></div>
-	                    </div>
-	                    <div class="about_list">
-	                        <div class="about_list_eg" id="about_en_loc">location</div>
-	                        <div class="about_list_cn" id="about_cn_loc">坐标<p>广州</p></div>
-	                    </div>
-	                    <div class="about_list">
-	                        <div class="about_list_eg" id="about_en_sta">status</div>
-	                        <div class="about_list_cn" id="about_cn_sta">状态<p>一周内到岗</p></div>
-	                    </div>
-					</div>
-					<div id="about_info">
-						<p>2014年毕业于广东水利电力职业技术学院，电气自动化专业</p>
-						<p style="bottom: 0px;">喜欢优雅的代码，代码强迫症患者</p>
-						<p style="bottom: 0px;">层出不穷的框架让人兴奋，而不同框架背后的思路却在逐渐统一</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- page2 about end -->
-	    <!-- page3 skill -->
-		<div class="section section3">
-			<div id="skill">
-				<div id="skill_content">
-					<div class="title">
-						<h1>专业技能</h1><div class="title_en"><h2>· Skill ·</h2></div>
-					</div>
-					<div id="skill_info"><p>前端的学习需要持之以恒，知识深度与广度都很重要。而前端开发的重中之重就是原生javascript的理解。</p></div>
-	                <div id="skill_list">
-	                    <div class="skill_list_content skill_scale" id="skill_list1">
-	                        <div class="skill_icon" id="skill_icon1"><h3>HTML</h3></div>
-	                        <div class="skill_name"></div>
-	                        <div class="skill_flag"></div>
-	                        <div class="skill_int" id="skill_int1"><ul><li>深刻理解Web标准</li><li>熟练运用html标签</li><li>熟悉html及html5标记语言</li></ul></div>
-	                    </div>
-	                    <div class="skill_list_content skill_scale" id="skill_list2">
-	                        <div class="skill_icon" id="skill_icon2"><h3>CSS</h3></div>
-	                        <div class="skill_name"></div>
-	                        <div class="skill_flag"></div>
-	                        <div class="skill_int" id="skill_int2"><ul><li>熟练运用css及css3新属性</li><li>注重浏览器兼容性</li><li>熟悉bootstrap</li></ul></div>
-	                    </div>
-	                    <div class="skill_list_content skill_scale" id="skill_list3">
-	                        <div class="skill_icon" id="skill_icon3"><h3>JavaScript</h3></div>
-	                        <div class="skill_name"></div>
-	                        <div class="skill_flag"></div>
-	                        <div class="skill_int" id="skill_int3"><ul><li>掌握jQuery</li><li>掌握原生JS的编程</li><li>熟悉DOM树模型结构编程</li><li>注重JavaScript性能优化</li></ul></div>
-	                    </div>
-	                    <div class="skill_list_content skill_scale" id="skill_list4">
-	                        <div class="skill_icon" id="skill_icon4"><h3>others</h3></div>
-	                        <div class="skill_name"></div>
-	                        <div class="skill_flag"></div>
-	                        <div class="skill_int" id="skill_int4"><ul><li>模块组件化</li><li>熟练的指令编写</li><li>接下来准备学习node.js和SQL</li></ul></div>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>			
-		</div>
-		<!-- page3 skill end -->	
-	    <!-- page4 experience -->
-		<div class="section section4">
-			<div id="exp">
-		    	<div id="exp_content">
-		    		<div class="title">
-		            	<h1>我的经历</h1><div class="title_en"><h2>· Experience ·</h2></div>
-		            </div>
-		            <div id="exp_list_slider">
-		            	<div id="exp_list_slider_content" class="exp_scale">
-		                    <div id="exp_list_content" style="left: 0px;">
-		                        <div class="exp_list">
-		                            <div class="exp_list_left" id="exp_list_left1">
-	                                    <dl>
-	                                        <dt>广州宇竣包装设备有限公司</dt>
-	                                        <dd class="exp_list_time">2014.04 — 2014.12</dd>
-	                                        <dd>研发部</dd>
-	                                        <dd>电气工程师</dd>
-	                                        <dd>主要偏向于硬件编程，</br>对PLC控制器的编程和解决元器件线路问题。</dd>
-	                                    </dl>        
-		                            </div>
-		                    	</div>
-		                    	<div class="exp_list">
-		                            <div class="exp_list_left" id="exp_list_left2">
-	                                    <dl>
-	                                        <dt>深圳盈客科技有限公司</dt>
-	                                        <dd class="exp_list_time">2015.05 — 2015.12</dd>
-	                                        <dd>市场部</dd>
-	                                        <dd>软件推广</dd>
-	                                        <dd>主要负责线上和线下推广公司旅舍管理软件，
-	                                        线下到旅游目的地,拜访用户。</br>曾一人独自到上海、杭州、苏州等旅游城市开展业务。</dd>
-	                                    </dl>         
-		                        	</div>
-		                    	</div>
-		                        <div class="exp_list">
-		                            <div class="exp_list_left" id="exp_list_left3">
-	                                    <dl>
-	                                        <dt>自学前端</dt>
-	                                        <dd class="exp_list_time">2016年3月</dd>
-	                                        <dd>从今年的3月份，由之前软件的同事，和身边自学的同学鼓舞下，开始了艰辛的自学之路。</br>获取学习资源的途径主要是通过网络和书籍，例如慕课网上的很多大神的视频。其中《JavaScript DOM编程艺术》这本书在JS实践操作，更是良师益友般的存在。</dd>
-	                                    </dl>
-		                            </div>
-		                        </div>
-		                    </div>
-			                <div id="exp_list_to">
-			                	<div id="exp_list_toleft"><img src="images/exp_list_toleft.png"></div>
-			                	<div id="exp_list_toright"><img src="images/exp_list_toright.png"></div>
-			                </div>
+    });
+});
 
-			                <div id="exp_list_buttons">
-			                    <span index="1" class="on"></span>
-			                    <span index="2"></span>
-			                    <span index="3"></span>
-			                </div>
 
-		                </div>	       
+$(document).ready(function(){
+    //顶部标题文字切换
+	$("#header_p").mouseover(function(){
+		$("#header_p1").html("Resume");
+		$("#header_p2").html("前端工程师");
+	}).mouseout(function(){
+		$("#header_p1").html("F2E");
+		$("#header_p2").html("个人简历");	
+	});
+    //顶部导航取消
+	$("header nav a:not(':first')").click(function(){
+		alert("正在努力建设中...请稍等");
+		return false;
+	});
 
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!-- page4 experience end -->
-	    <!-- page5 demo -->
-		<div class="section section5">
-			    	<div id="demo">
-			        	<div id="demo_content">
-			            	<div class="title">
-			                	<h1>我的作品</h1><div class="title_en"><h2>· Demo ·</h2></div>
-			                </div>
-			                <div id="demo_content_list">                   
-			                    <ul class="demo_box">
-			                    	<li class="demo_scale">
-			                            <div class="demo_box_content">
-			                            	<div class="demo_box_hover">
-			                                    <p class="demo_box_title">电商平面网站</p>
-			                                </div>
-			                                <a href="http://wuganlador.github.io/onlineRetailers02/#">
-				                                <img src="images/project01.jpg" alt="" class="demo_box_bg">
-			                                </a>
-			                            </div>
-			                        </li>
-			                        <li class="demo_scale">
-			                            <div class="demo_box_content">
-			                                <div class="demo_box_hover">
-			                                    <p class="demo_box_title">DEMO:DOM编程艺术</p>
-											</div>
-											<a href="http://wuganlador.github.io/JavaScript-DOM-demo">
-												<img src="images/project02.jpg" alt="" class="demo_box_bg">
-											</a>
-										</div>
-			                        </li>		                        
-			                        <li class="demo_scale">
-										<div class="demo_box_content">
-			                            	<div class="demo_box_hover">
-												<p class="demo_box_title">照片墙</p>
-			                                </div>
-			                                <a href="https://wuganlador.github.io/CSS3demo02/">
-												<img src="images/project03.jpg" alt="" class="demo_box_bg">
-											</a>
-			                            </div>
-			                        </li>
-			                        <li class="demo_scale">
-										<div class="demo_box_content">
-			                            	<div class="demo_box_hover">
-			                                	<p class="demo_box_title">嫦娥奔月动画</p>        
-			                                </div>
-			                                <a href="https://wuganlador.github.io/CSS3demo01/">
-												<img src="images/project04.jpg" alt="" class="demo_box_bg">
-											</a>
-			                            </div>
-			                        </li>
+    // page1 头像切换
+	$("#home_photo2").hover(function(){
+		$(this).fadeTo(800,1);
+		},function(){
+			$(this).stop(true,false).fadeTo(800,0);
+	});
 
-			                    </ul>
-							</div> 
-			                <div id="demo_info">
-			                    <p>这是我的部分demo。</p>
-			                    <p>更多demo请移步<a href="#" class="md-trigger" data-modal="modal-3">这里</a>。</p>
-			                </div>
-			            </div>
-			        </div>
-		</div>
-		<!-- page5 demo end -->
-	    <!-- page6 contact -->
-		<div class="section section6">
-			<div id="contact">
-		    	<div id="contact_content">
-					<div class="title">
-				    	<h1>联系方式</h1><div class="title_en"><h2>· Contact ·</h2></div>
-				    </div>
-				    <div class="contact_p">
-				    	<p>带上我吧，一起看更大的世界！</p>
-				    </div>
-				    <div id="contact_content_list">
-						<dl>
-							<dt>电话：13512785404</dt>
-							<dt>邮箱：1337657417@qq.com</dt>
-							<dt>微信：13512785404</dt>
-							<dt></dt>
-							<dt><a href="https://github.com/Wuganlador">github</a>&Iota;<a href="http://my.csdn.net/sufeideyeye">博客</a></dt>
-						</dl>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- page6 contact end-->
-	</div>
-</body>
-</html>
+    // page5
+    $(".md-trigger").click(function(){
+        alert("正在努力建设中...请稍等");
+        return false;
+    });
+
+})
+
+
+
+
+
+
+//page4 图片轮播
+window.onload = function () {
+    var container = document.getElementById('exp_list_slider_content');
+    var list = document.getElementById('exp_list_content');
+    var buttons = document.getElementById('exp_list_buttons').getElementsByTagName('span');
+    var prev = document.getElementById('exp_list_toleft');
+    var next = document.getElementById('exp_list_toright');
+
+    var index = 1; 
+
+    // 添加一个优化的标记，检测是否执行动画,避免无论任何情况下一直执行动画，消耗内存
+    var animated = false;
+    
+    function animate(offset){
+
+        animated = true;
+
+        var newLeft = parseInt(list.style.left) + offset;     
+        var time = 300; //位移总周期
+        var interval = 10; //每次位移间隔时间
+        var speed = offset/(time/interval); //每次位移长度 = 位移长度 / 位移次数 
+
+        // go函数是animate内的一个函数，这里是运动过度动画效果
+        // 递归函数，递归就是本身调用自己。
+        function go(){
+            // 检测
+            //  1.如果speed > 0 && parseInt(list.style.left) < left ，向左运动
+            //  2.speed < 0 && parseInt(list.style.left) > left     ，向右运动
+            if ( (speed > 0 && parseInt(list.style.left) < newLeft) || (speed < 0 && parseInt(list.style.left) > newLeft)) {
+                list.style.left = parseInt(list.style.left) + speed + 'px';
+                setTimeout(go, interval);
+            }
+            // 运动动画达到目标值后，停止
+            else {
+                animated = false;
+                list.style.left = newLeft + 'px';
+                if (newLeft > 0) {
+                    list.style.left = -1800 + 'px';
+                }
+                if (newLeft < -1800) {
+                  list.style.left = 0 + 'px';
+                }
+            }
+        }
+        go();
+    }
+    //图片下标圆点提醒和图片位置对应。
+    function showButton() {
+        // 清除之前留下的小圆点样式
+        for (var i = 0; i < buttons.length ; i++) {
+            if( buttons[i].className == 'on'){
+                buttons[i].className = '';
+                break;
+            }
+        }
+        // buttons数组的on对应样式，哪个图片的提示小圆点变橙色
+        // buttons是数组下标从0开始所以这里减一
+        buttons[index - 1].className = 'on';
+    }
+    for (var i = 0; i < buttons.length; i++) {
+        //哪个提示小圆点被单击了 
+        buttons[i].onclick = function () {
+            if (animated) {
+                return;
+            }
+            if(this.className == 'on') {
+                return;
+            }
+            // 获取当前提示小圆点的index属性值
+            var myIndex = parseInt(this.getAttribute('index'));
+
+            // 当前提示小圆点的index属性值 减去 正在显示的index属性值
+            var offset = -900 * (myIndex - index);
+
+             animate(offset);
+            
+            // 更新index
+            index = myIndex;
+            // 显示提示圆点样式
+            showButton();
+        }
+    }
+
+    //单击 > 右滚动图标
+    next.onclick = function () {
+
+        if (animated) {
+            return;
+        }
+        //优化，如果是单击本图片对应的提示小圆点就不做任何操作
+        if (index == 3) {
+            index = 1;
+        }
+        else {
+            index += 1;
+        }        
+        animate(-900);  
+        showButton();
+    }
+    //单击 < 左滚动图标
+    prev.onclick = function () {
+        if (animated) {
+            return;
+        }       
+        if (index == 1) {
+            index = 3;
+        }
+        else {
+            index -= 1;
+        }   
+        animate(900);       
+        showButton();
+    }
+    // 自动播放图片
+    function play(){
+        // 上面已经用了一个定时器setTimeout
+        // 这里我们另外用一个定时器setInterval
+        timer = setInterval(function(){
+            next.onclick();
+        },3000);
+    }
+    function stop() {
+        clearInterval(timer);
+    }
+    container.onmouseover = stop;
+    container.onmouseout = play;
+    play();
+}
