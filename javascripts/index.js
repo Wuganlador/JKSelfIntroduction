@@ -70,8 +70,6 @@ $(function(){
 
 
 $(document).ready(function(){
-
-    // page1
     //顶部标题文字切换
 	$("#header_p").mouseover(function(){
 		$("#header_p1").html("Resume");
@@ -85,13 +83,25 @@ $(document).ready(function(){
 		alert("正在努力建设中...请稍等");
 		return false;
 	});
-    // 头像切换
+
+    // page1 头像切换
 	$("#home_photo2").hover(function(){
 		$(this).fadeTo(800,1);
 		},function(){
 			$(this).stop(true,false).fadeTo(800,0);
 	});
+
+    // page5
+    $(".md-trigger").click(function(){
+        alert("正在努力建设中...请稍等");
+        return false;
+    });
+
 })
+
+
+
+
 
 
 //page4 图片轮播
