@@ -1,4 +1,4 @@
-// jquery.fullPage 图片轮播设置
+// jquery.fullPage 全屏滚动插件设置
 $(function(){
     $('#dowebok').fullpage({
         // sectionsColor: ['#1bbc9b', '#4BBFC3', '#febc59', '#6cced6','#FF6666','#FFF'],
